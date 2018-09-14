@@ -18,4 +18,15 @@ a、授权码模式(authorization code)
 &emsp;用户通过浏览器输入服务器分配的授权码获取地址进行授权码申请;申请通过后地址会进行重定向地址，重定向后的地址会带有授权码，客户端获得授权码可以再次访问认证服务器获取访问码及刷新码。  
 &emsp;例如:GET /authorize?response_type=code&client_id=s6BhdRkqt3&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb HTTP/1.1
  
-
+访问码信息：  
+&emsp;access_token：表示访问令牌，必选项。  
+&emsp;token_type：表示令牌类型，该值大小写不敏感，必选项，可以是bearer类型或mac类型。  
+&emsp;expires_in：表示过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。  
+&emsp;refresh_token：表示更新令牌，用来获取下一次的访问令牌，可选项。  
+&emsp;scope：表示权限范围，如果与客户端申请的范围一致，此项可省略。    
+b、简化模式(implicit grant type)  
+&emsp;不需要申请授权令牌  
+c、密码模式(Resource Owner Password Credentials Grant)  
+&emsp;客户端直接通过密码获取访问码  
+d、客户端模式（Client Credentials Grant）  
+&emsp;客户端向认证服务器进行身份认证获取访问码
