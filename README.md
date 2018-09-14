@@ -30,3 +30,5 @@ c、密码模式(Resource Owner Password Credentials Grant)
 &emsp;客户端直接通过密码获取访问码  
 d、客户端模式（Client Credentials Grant）  
 &emsp;客户端向认证服务器进行身份认证获取访问码
+
+## 3、如何构建oauth2.0服务端
