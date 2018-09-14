@@ -29,6 +29,7 @@ b、简化模式(implicit grant type)
 c、密码模式(Resource Owner Password Credentials Grant)  
 &emsp;客户端直接通过密码获取访问码  
 d、客户端模式（Client Credentials Grant）  
-&emsp;客户端向认证服务器进行身份认证获取访问码
+&emsp;客户端向认证服务器进行身份认证client_id,client_secret获取访问码
 
 ## 3、如何构建oauth2.0服务端
+1)、spring security oauth2
