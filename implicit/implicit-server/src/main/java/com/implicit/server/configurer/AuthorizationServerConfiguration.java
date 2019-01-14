@@ -52,7 +52,7 @@ public class AuthorizationServerConfiguration extends
 				.resourceIds(Constants.RESOURCE_ID)
 				.authorizedGrantTypes("authorization_code","implicit").authorities("USER")
 				.scopes("getInfo").secret("123456")
-				.redirectUris("http://localhost:8081/callback/onHandler")
+				.redirectUris("http://localhost:8081/callback/redirect")
 				.autoApprove(true);
 
 	}
