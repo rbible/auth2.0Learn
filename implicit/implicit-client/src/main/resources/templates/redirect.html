@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example </title>
+        
+<Script language="javascript"> 
+function GetRequest() { 
+   var url = location.href; //获取url中"#"符后的字串 
+   var theRequest = new Object(); 
+   if (url.indexOf("#") != -1) { 
+      var str = url.substr(url.indexOf("#")+1); 
+      strs = str.split("&"); 
+      for(var i = 0; i < strs.length; i ++) { 
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+      } 
+   } 
+   
+   var _div =document.getElementById("request_param");
+   _div.innerHTML = JSON.stringify(theRequest);
+} 
+</script>
+    </head>
+    <body onload="GetRequest()">
+        <div id="request_param">
+        </div>
+    </body>
+</html>
