@@ -50,7 +50,7 @@ public class AuthorizationServerConfiguration extends
 			throws Exception {
 		clients.inMemory().withClient("c_test")
 				.resourceIds(Constants.RESOURCE_ID)
-				.authorizedGrantTypes("implicit").authorities("USER")
+				.authorizedGrantTypes("authorization_code","implicit").authorities("USER")
 				.scopes("getInfo").secret("123456")
 				.redirectUris("http://localhost:8081/callback/onHandler")
 				.autoApprove(true);
