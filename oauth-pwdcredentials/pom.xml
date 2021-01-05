@@ -4,8 +4,8 @@
 	<groupId>spring.learn.oauth</groupId>
 	<artifactId>oauth-pwdcredentials</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>oauth2密码模式</name>
-	<description>oauth2密码模式与client模式</description>
+	<name>oauth2-password-model</name>
+	<description>oauth2-password-model</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

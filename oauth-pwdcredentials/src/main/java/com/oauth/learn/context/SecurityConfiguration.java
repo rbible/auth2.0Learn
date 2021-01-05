@@ -15,38 +15,39 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
-    protected UserDetailsService userDetailsService(){
+    protected UserDetailsService userDetailsService() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        String finalPassword = "{bcrypt}"+bCryptPasswordEncoder.encode("123456");
+        String finalPassword = "{bcrypt}" + bCryptPasswordEncoder.encode("123456");
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("user_1").password(finalPassword).authorities("USER").build());
         manager.createUser(User.withUsername("user_2").password(finalPassword).authorities("USER").build());
         return manager;
     }
-    
+
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-    
+
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         AuthenticationManager manager = super.authenticationManagerBean();
         return manager;
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
-        http
-            .requestMatchers().anyRequest()
-            .and()
+        http.requestMatchers()
+                .anyRequest()
+                .and()
                 .authorizeRequests()
-                .antMatchers("/oauth/**").permitAll();
+                .antMatchers("/oauth/**")
+                .permitAll();
         // @formatter:on
     }
 }
